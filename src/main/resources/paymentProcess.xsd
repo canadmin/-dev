@@ -1,0 +1,73 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service"
+           elementFormDefault="qualified" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.w3.org/2001/XMLSchema ">
+
+    <xs:element name="GetCostAmountByRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="customerNum" type="xs:string"/>
+                <xs:element name="accountNum" type="xs:string"/>
+                <xs:element name="transactionAmount" type="xs:decimal"/>
+                <xs:element name="transactionCurrencyCode" type="xs:string"/>
+                <xs:element name="destinationCountry" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetCostAmountResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="costAmount" type="xs:decimal"/>
+                <xs:element name="costAmountCurrency" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPaymentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="customerNum" type="xs:string"/>
+                <xs:element name="accountNum" type="xs:string"/>
+                <xs:element name="accountCurrencyCode" type="xs:string"/>
+                <xs:element name="transactionAmount" type="xs:string"/>
+                <xs:element name="transactionCurrencyCode" type="xs:string"/>
+                <xs:element name="destinationCountry" type="xs:string"/>
+                <xs:element name="receiverIban" type="xs:string"/>
+                <xs:element name="receiverName" type="xs:string"/>
+                <xs:element name="receiverSurname" type="xs:string"/>
+                <xs:element name="receiverAddress" type="xs:string"/>
+                <xs:element name="transactionReference" type="xs:string"/>
+                <xs:element name="transactionDate" type="xs:date"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPaymentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="transactionReference" type="xs:string"/>
+                <xs:element name="transactionStatus" type="xs:string"/>
+                <xs:element name="createdTime" type="xs:date"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPaymentStatusRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="transactionReference" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetPaymentStatusResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="paymentStatus" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
